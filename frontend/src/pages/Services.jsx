@@ -43,11 +43,11 @@ const Services = () => {
     return(
         <>
             <section className="flex flex-col items-center bg-green-800 h-full w-screen">
-                <div className="mt-4 bg-white sm:w-1/2 lg:w-2/3">
-                    <h1 className="text-2xl items-center bg-yellow-500 border-b-green-800 font-bold pl-2">Services</h1>
+                <div className="flex flex-col mt-4 bg-white items-center p-2 sm:w-1/2 lg:w-2/3">
+                    <h1 className="flex justify-center text-2xl items-center bg-yellow-500 border-b-green-800 font-bold w-full">Services</h1>
                     {
                         services.map(service => 
-                            <div className="flex flex-col border rounded-br-3xl shadow-sm bg-white p-2 mb-2 sm:w-2/3 lg:w-4/5 md:w-4/5">
+                            <div className="flex flex-col border rounded-sm shadow-sm bg-white p-2 mt-2 sm:w-2/3 lg:w-4/5 md:w-4/5">
                                 <span className="text-yellow-500 italic text-xl border-b border-green-800">{service.name}</span>
                                 <article className="font-thin">
                                     {service.description}
