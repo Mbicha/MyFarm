@@ -7,12 +7,14 @@ import {
 import React from 'react';
 import Index from "./Index";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer"
 
 const Layout = () => {
   return(
     <>
       <NavBar/>
       <Outlet/>
+      <Footer/>
     </>
   )
 }
