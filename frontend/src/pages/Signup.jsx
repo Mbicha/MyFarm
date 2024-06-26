@@ -5,9 +5,10 @@ const Signup = () => {
     return(
         <>
             <section className="flex flex-col items-center bg-green-800 h-full w-screen">
-                <form className="flex flex-col p-2 bg-white w-auto">
-                    <h1 className="flex justify-center text-2xl items-center bg-yellow-500 border-b-green-800 font-bold w-full">
-                        Signup
+                <form className="flex flex-col p-3 bg-white w-auto rounded-lg">
+                    <h1
+                        className="flex justify-center text-2xl items-center rounded-tl-md rounded-tr-md bg-yellow-500 border-b-green-800 font-bold w-full">
+                        Create Account
                     </h1>
                     <input
                         type="text" 
@@ -38,9 +39,11 @@ const Signup = () => {
                         name="confirm_password" 
                         placeholder="Confirm Password" 
                         className="mt-2 border-b-gray-400 p-2"/>
-                    
-                    <input type="button" value="Signup" className="mt-2 bg-yellow-500 p-2"/>
-                    <p className="flex justify-center">Already have an Account? <Link to={`/login`} className="underline">Login</Link></p>
+
+                    <div className="flex justify-center">
+                        <input type="submit" value="Signup" className="mt-2 w-1/2 rounded-md bg-green-800 text-white p-1"/>
+                    </div>
+                    <p className="flex justify-center">Already have an Account? <Link to={`/login`} className="underline pl-1 pr-1 hover:bg-yellow-500">Login</Link></p>
                 </form>
             </section>
         </>
