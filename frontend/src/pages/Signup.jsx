@@ -11,7 +11,7 @@ const Signup = () => {
                         Create Account
                     </h1>
                     <input
-                        type="text" 
+                        type="text"
                         name="first_name" 
                         placeholder="First Name" 
                         className="mt-2 border-b-gray-400 p-2"/>

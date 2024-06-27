@@ -5,7 +5,7 @@ const NavBar = () => {
     return(
         <>
             <header
-                className="flex flex-row justify-between bg-green-800 h-16 border-b border-yellow-500 shadow-md w-screen">
+                className="flex flex-row justify-between bg-green-800 h-16 shadow-md w-screen">
                     <Link to={`/`}>
                         <img src="/media/icons/menu-64.png" alt=""/>
                     </Link>
