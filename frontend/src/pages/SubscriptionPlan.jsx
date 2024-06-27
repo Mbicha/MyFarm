@@ -7,7 +7,7 @@ const SubscriptionPlan = () => {
                 <h1 className="underline text-white text-xl sm:text-3xl">Subscription Plan</h1>
                 <p className="flex text-gray-900">Choose a plan that aligns with you farm.</p>
 
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-col lg:flex-row justify-between">
                     {/* Start Subsription Card */}
                     <div className="flex flex-col items-center w-auto h-auto bg-white rounded-lg p-1 shadow-lg m-1">
                         <h2 className="flex justify-center text-2xl font-bold text-gray-900">Basic</h2>
