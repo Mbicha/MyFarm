@@ -65,7 +65,7 @@ const Dashboard = () => {
                 <aside className="flex flex-col h-dvh w-full sm:w-1/3 p-2 m-6">
                     <div className="flex flex-col h-auto p-1">
                         <div className="flex flex-row justify-center items-center p-1 border bg-white">
-                            <img src="/media/profiles/charles.jpg" alt="" srcSet="" className="h-24 w-24 border rounded-full" />
+                            <img src="/media/profiles/profile.png" alt="" srcSet="" className="h-24 w-24 border rounded-full" />
                             <h2 className="font-semibold ml-2 text-gray-600">Charles Mbithi</h2>
                         </div>
                         <hr />
