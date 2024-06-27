@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Tooltip, Legend, Cell } from 'recharts';
+
+// Add colors for the pie chart
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57'];
 
 const Dashboard = () => {
     const [timePeriod, setTimePeriod] = useState('daily');
@@ -51,6 +54,11 @@ const Dashboard = () => {
         ],
     };
 
+    const handleTimePeriodChange = (period) => {
+        setTimePeriod(period);
+    };
+    
+
     return (
         <>
             <section className="flex flex-col md:flex-row lg:flex-row items-center bg-green-900 h-dvh w-screen mt-2">
@@ -77,27 +85,40 @@ const Dashboard = () => {
                         <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Add Farm Produces</Link>
                         <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Show MyFarm</Link>
                     </div>
+                    {/* Subscription Plan */}
+                    <div className="flex flex-col bg-white mt-2 p-1">
+                        <Link to={`/subscription-plan`} className="mt-1 underline text-gray-600">Subscription Plan </Link>
+                    </div>
                 </aside>
 
                 <div className="flex flex-col h-dvh p-2 m-6 w-full">
-                    <h1 className="text-yellow-500 text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
+                    <h1 className="text-white text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
                     <p className="flex text-gray-900">Monitor your business progress through various visualizations</p>
-                    {/* <div className="flex flex-row mb-4">
-                        <button onClick={() => setTimePeriod('daily')} className={`p-2 ${timePeriod === 'daily' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Daily</button>
-                        <button onClick={() => setTimePeriod('weekly')} className={`p-2 ${timePeriod === 'weekly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Weekly</button>
-                        <button onClick={() => setTimePeriod('monthly')} className={`p-2 ${timePeriod === 'monthly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Monthly</button>
-                        <button onClick={() => setTimePeriod('quarterly')} className={`p-2 ${timePeriod === 'quarterly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Quarterly</button>
-                        <button onClick={() => setTimePeriod('halfYearly')} className={`p-2 ${timePeriod === 'halfYearly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Half-Yearly</button>
-                        <button onClick={() => setTimePeriod('yearly')} className={`p-2 ${timePeriod === 'yearly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Yearly</button>
+                    
+                    <div className="flex flex-row justify-between mb-4 border p-1 bg-white">
+                        <button 
+                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            onClick={() => handleTimePeriodChange(timePeriod)}>
+                                Daily
+                        </button>
+                        <button
+                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            onClick={() => handleTimePeriodChange('weekly')}>
+                                Weekly
+                        </button>
+                        <button
+                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            onClick={() => console.log("Clicked!!!")}>
+                                Quarterly
+                        </button>
+                        <button
+                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md">
+                                Yearly
+                        </button>
                     </div>
-                    <BarChart width={600} height={300} data={data[timePeriod]}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="sales" fill="#8884d8" />
-                    </BarChart> */}
+                    <div className="flex flex-col border border-yellow-500 w-full h-96">
+                        
+                    </div>                    
                 </div>
             </section>
         </>
