@@ -15,7 +15,7 @@ const Index = () =>{
                                 </h1>
                                 Manage my farm produces, monitor profits, visualize metrices with a pcket friendly budget of $. 30.00 per month.
                                 <div className="flex flex-row pt-2">
-                                    <Link to={`/`} className="bg-yellow-500 p-2 rounded-md text-green-800 mr-2">Create Farm</Link>
+                                    <Link to={`/create-farm`} className="bg-yellow-500 p-2 rounded-md text-green-800 mr-2">Create Farm</Link>
                                     <Link to={`/signup`} className="bg-yellow-500 p-2 rounded-md text-green-800">Login/Signup</Link>
                                 </div>                                
                         </div>
