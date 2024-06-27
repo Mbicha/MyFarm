@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Signup = () => {
     return(
         <>
-            <section className="flex flex-col items-center bg-green-800 h-full w-screen">
+            <section className="flex flex-col items-center bg-green-900 h-full w-screen">
                 <form className="flex flex-col p-3 mt-2 bg-white w-auto rounded-lg">
                     <h1
                         className="flex justify-center text-yellow-500 text-2xl items-center rounded-tl-md rounded-tr-md border-b border-green-800 font-bold w-full">

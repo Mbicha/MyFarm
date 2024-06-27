@@ -1,20 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const Dashboard = () => {
-    return(
+    const [timePeriod, setTimePeriod] = useState('daily');
+
+    const data = {
+        daily: [
+            { name: 'Mon', sales: 400 },
+            { name: 'Tue', sales: 300 },
+            { name: 'Wed', sales: 500 },
+            { name: 'Thu', sales: 200 },
+            { name: 'Fri', sales: 278 },
+            { name: 'Sat', sales: 189 },
+            { name: 'Sun', sales: 239 },
+        ],
+        weekly: [
+            { name: 'Week 1', sales: 1400 },
+            { name: 'Week 2', sales: 1500 },
+            { name: 'Week 3', sales: 1300 },
+            { name: 'Week 4', sales: 1600 },
+        ],
+        monthly: [
+            { name: 'Jan', sales: 4000 },
+            { name: 'Feb', sales: 3000 },
+            { name: 'Mar', sales: 5000 },
+            { name: 'Apr', sales: 4000 },
+            { name: 'May', sales: 6000 },
+            { name: 'Jun', sales: 7000 },
+            { name: 'Jul', sales: 8000 },
+            { name: 'Aug', sales: 5000 },
+            { name: 'Sep', sales: 4000 },
+            { name: 'Oct', sales: 6000 },
+            { name: 'Nov', sales: 7000 },
+            { name: 'Dec', sales: 8000 },
+        ],
+        quarterly: [
+            { name: 'Q1', sales: 12000 },
+            { name: 'Q2', sales: 15000 },
+            { name: 'Q3', sales: 18000 },
+            { name: 'Q4', sales: 20000 },
+        ],
+        halfYearly: [
+            { name: 'H1', sales: 30000 },
+            { name: 'H2', sales: 40000 },
+        ],
+        yearly: [
+            { name: '2023', sales: 70000 },
+            { name: '2024', sales: 80000 },
+        ],
+    };
+
+    return (
         <>
-            <section className="flex flex-col md:flex-row lg:flex-row items-center bg-green-800 h-dvh w-screen mt-2">
-                <aside className="flex flex-col h-dvh w-1/3 p-2 m-6">
+            <section className="flex flex-col md:flex-row lg:flex-row items-center bg-green-900 h-dvh w-screen mt-2">
+                <aside className="flex flex-col h-dvh w-full sm:w-1/3 p-2 m-6">
                     <div className="flex flex-col h-auto p-1">
                         <div className="flex flex-row justify-center items-center p-1 border bg-white">
-                            <img src="/media/profiles/charles.jpg" alt="" srcset="" className="h-24 w-24 border rounded-full"/>
-                            <h2 className="fonnt-semibold ml-2 text-gray-600">Charles Mbithi</h2>                            
+                            <img src="/media/profiles/charles.jpg" alt="" srcSet="" className="h-24 w-24 border rounded-full" />
+                            <h2 className="font-semibold ml-2 text-gray-600">Charles Mbithi</h2>
                         </div>
                         <hr />
                         <Link to={`/`} className="bg-white items-center p-1 text-gray-600">
                             Sales: 0.00
-                        </Link>       
+                        </Link>
                     </div>
                     {/* My Farm Info */}
                     <div className="flex flex-col bg-white mt-2 p-1">
@@ -22,22 +71,37 @@ const Dashboard = () => {
                             <h1 className="p-1 text-gray-600">
                                 MyFarm
                             </h1>
-                            <span className="text-green-800">Poutry Farming</span>
-                        </div>                        
+                            <span className="text-green-800">Poultry Farming</span>
+                        </div>
                         <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Create Farm</Link>
                         <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Add Farm Produces</Link>
-                        <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Show MyFarm</Link>                        
+                        <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Show MyFarm</Link>
                     </div>
-                    {/* Visualization */}
-                    <Link to={`/create-farm`} className="mt-1 underline text-gray-600 bg-white p-1">Visualizations</Link>
                 </aside>
 
-                <div className="flex flex-col border h-dvh 2/3 p-2 m-6 w-full">
-                    More Details
+                <div className="flex flex-col h-dvh p-2 m-6 w-full">
+                    <h1 className="text-yellow-500 text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
+                    <p className="flex text-gray-900">Monitor your business progress through various visualizations</p>
+                    {/* <div className="flex flex-row mb-4">
+                        <button onClick={() => setTimePeriod('daily')} className={`p-2 ${timePeriod === 'daily' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Daily</button>
+                        <button onClick={() => setTimePeriod('weekly')} className={`p-2 ${timePeriod === 'weekly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Weekly</button>
+                        <button onClick={() => setTimePeriod('monthly')} className={`p-2 ${timePeriod === 'monthly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Monthly</button>
+                        <button onClick={() => setTimePeriod('quarterly')} className={`p-2 ${timePeriod === 'quarterly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Quarterly</button>
+                        <button onClick={() => setTimePeriod('halfYearly')} className={`p-2 ${timePeriod === 'halfYearly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Half-Yearly</button>
+                        <button onClick={() => setTimePeriod('yearly')} className={`p-2 ${timePeriod === 'yearly' ? 'bg-yellow-500' : 'bg-gray-300'} m-1`}>Yearly</button>
+                    </div>
+                    <BarChart width={600} height={300} data={data[timePeriod]}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="sales" fill="#8884d8" />
+                    </BarChart> */}
                 </div>
             </section>
         </>
-    )
-}
+    );
+};
 
 export default Dashboard;

@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/Mbicha/MyFarm/issues"
   },
-  "homepage": "https://github.com/Mbicha/MyFarm#readme"
+  "homepage": "https://github.com/Mbicha/MyFarm#readme",
+  "dependencies": {
+    "recharts": "^2.12.7"
+  }
 }
