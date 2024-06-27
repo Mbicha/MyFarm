@@ -90,18 +90,18 @@ const types_farming = {
   }
 
 const CreateFarm = () => {
-    const getMainCategory = (types_farming, main_category) => {
+    const filterFarmingType = (types_farming, main_category) => {
         if(main_category === "AnimalFarming") {
             return types_farming.main_category
         } else {
             return types_farming.main_category
         }
-    }
+      }
     
     return(
         <>
             <section className="flex flex-col items-center bg-green-800 h-full w-screen">
-                <form className="flex flex-col p-3 bg-white w-auto rounded-lg">
+                <form className="flex flex-col p-3 mt-2 bg-white w-auto rounded-lg">
                     <h1
                         className="flex justify-center text-2xl items-center rounded-tl-md rounded-tr-md bg-yellow-500 border-b-green-800 font-bold w-full">
                         Create Farm
@@ -113,13 +113,24 @@ const CreateFarm = () => {
                         className="mt-2 border-b-gray-400 p-2"/>
 
                     <div className="flex flex-col mt-2 border-b-gray-400 p-2">
-                        <label htmlFor="farming_category">Farming Category</label>
+                        <label htmlFor="farming_category" className="mb-1">Farming Category</label>
                         <select
                             name="farming_category"
                             id="farming_category"
                             defaultValue={`PlantFarming`}>
-                                <option value={"PlantFarming"}>PlantFarming</option>
-                                <option value={"AnimalFarming"}>AnimalFarming</option>
+                                <option value={"PlantFarming"}>Plant Farming</option>
+                                <option value={"AnimalFarming"}>Animal Farming</option>
+                        </select>
+                    </div>
+
+                    <div className="flex flex-col mt-2 border-b-gray-400 p-2">
+                        <label htmlFor="farming_type" className="mb-1">Specific Farming Type</label>
+                        <select
+                            name="farming_type"
+                            id="farming_type"
+                            defaultValue={`Cereal Planting`}>
+                                <option value={"Cereal Planting"}>Cereal Planting</option>
+                                <option value={"Beef Farming"}>Beef Farming</option>
                         </select>
                     </div>
                     

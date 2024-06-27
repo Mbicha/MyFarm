@@ -13,6 +13,7 @@ import Services from "./pages/Services";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import CreateFarm from "./pages/CreateFarm";
+import Dashboard from "./pages/Dashboard";
 
 const Layout = () => {
   return(
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:"/create-farm",
         element: <CreateFarm/>
+      },
+      {
+        path:"/dashboard",
+        element: <Dashboard/>
       }
     ]
   }
