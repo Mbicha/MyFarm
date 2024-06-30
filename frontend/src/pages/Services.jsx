@@ -48,7 +48,7 @@ const Services = () => {
                     <div className="flex flex-wrap justify-center">
                       {
                           services.map(service => 
-                              <div className="flex flex-wrap border rounded-md shadow-lg bg-white p-2 mt-2 ml-2 mr-2 mb-4 w-2/5">
+                              <div className="flex flex-wrap border rounded-md shadow-lg bg-white p-2 mt-2 ml-2 mr-2 mb-4 w-full sm:w-4/5 md:w-2/3 lg:w-2/5">
                                   <span className="text-yellow-500 italic text-xl border-b border-green-800">{service.name}</span>
                                   <article className="font-thin">
                                       {service.description}

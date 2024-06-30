@@ -14,9 +14,9 @@ const Footer = () => {
                 </div> */}
 
                 {/* Copyright */}
-                <div className="flex flex-row justify-center text-md align-bottom font-thin italic underline">
+                {/* <div className="flex flex-row justify-center text-md align-bottom font-thin italic underline">
                     Developed by Charles Mbithi. MyFarm &copy; 2024
-                </div>
+                </div> */}
             </footer>
         </>
     )
