@@ -102,24 +102,24 @@ const Dashboard = () => {
                     <h1 className="text-white text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
                     <p className="flex text-gray-900">Monitor your business progress through various visualizations</p>
                     
-                    <div className="flex flex-col justify-between mb-4 border p-1 bg-white sm:flex-row">
+                    <div className="flex flex-col items-center mb-4 border p-1 bg-white sm:flex-row sm:justify-between">
                         <button 
-                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
                             onClick={() => handleTimePeriodChange(timePeriod)}>
                                 Daily
                         </button>
                         <button
-                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
                             onClick={() => handleTimePeriodChange('weekly')}>
                                 Weekly
                         </button>
                         <button
-                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
+                            className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
                             onClick={() => console.log("Clicked!!!")}>
                                 Quarterly
                         </button>
                         <button
-                            className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md">
+                            className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12">
                                 Yearly
                         </button>
                     </div>
