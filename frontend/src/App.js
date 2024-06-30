@@ -15,6 +15,8 @@ import Login from "./pages/Login";
 import CreateFarm from "./pages/CreateFarm";
 import Dashboard from "./pages/Dashboard";
 import SubscriptionPlan from "./pages/SubscriptionPlan";
+import EditFarmProduce from "./pages/EditFarmProduce";
+import ShowFarm from "./pages/ShowFarm";
 
 const Layout = () => {
   return(
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
       {
         path:"/subscription-plan",
         element: <SubscriptionPlan/>
+      },
+      {
+        path: "/edit-farm-produce",
+        element: <EditFarmProduce/>
+      },
+      {
+        path: "/show-myfarm",
+        element: <ShowFarm />
       }
     ]
   }

@@ -1,0 +1,17 @@
+{   
+    "UOM": [
+      {"kilogram": "kg"},
+      {"gram": "g"},
+      {"tonne": "t"},
+      {"liter": "L"},
+      {"milliliter": "mL"},
+      {"cubic_meter": "m^3"},
+      {"meter": "m"},
+      {"centimeter": "cm"},
+      {"millimeter": "mm"},
+      {"square_meter": "m^2"},
+      {"hectare": "ha"},
+      {"unit": "unit"}   
+    ] 
+}
+  

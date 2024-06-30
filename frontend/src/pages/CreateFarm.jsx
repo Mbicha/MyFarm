@@ -100,7 +100,7 @@ const CreateFarm = () => {
     
     return(
         <>
-            <section className="flex flex-col items-center bg-green-800 h-full w-screen">
+            <section className="flex flex-col items-center bg-green-900 h-full w-screen">
                 <form className="flex flex-col p-3 mt-2 bg-white w-auto rounded-lg">
                     <h1
                         className="flex justify-center text-2xl items-center rounded-tl-md rounded-tr-md bg-yellow-500 border-b-green-800 font-bold w-full">

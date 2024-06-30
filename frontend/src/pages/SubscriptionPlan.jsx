@@ -9,7 +9,7 @@ const SubscriptionPlan = () => {
 
                 <div className="flex flex-col lg:flex-row justify-between">
                     {/* Start Subsription Card */}
-                    <div className="flex flex-col items-center w-auto h-auto bg-white rounded-lg p-1 shadow-lg m-1">
+                    <div className="flex flex-col items-center h-auto bg-white rounded-lg p-1 shadow-lg m-1 w-full sm:w-4/5 md:w-4/5 lg:w-1/3">
                         <h2 className="flex justify-center text-2xl font-bold text-gray-900">Basic</h2>
                         <p className="flex text-gray-900">Ksh. 30/Month</p>
                         <div className="w-full border-b"></div>           
@@ -23,7 +23,7 @@ const SubscriptionPlan = () => {
                     {/* End of Subscriprion Card */}
 
                     {/* Start Subsription Card */}
-                    <div className="flex flex-col items-center w-auto h-auto bg-white rounded-lg p-1 shadow-lg m-1">
+                    <div className="flex flex-col items-center h-auto bg-white rounded-lg p-1 shadow-lg m-1 w-full sm:w-4/5 md:w-4/5 lg:w-1/3">
                         <h2 className="flex justify-center text-2xl font-bold text-gray-900">Standard</h2>
                         <p className="flex text-gray-900">Ksh. 1000/Month</p>
                         <div className="w-full border-b"></div>           
@@ -40,7 +40,7 @@ const SubscriptionPlan = () => {
                     </div>
                     {/* End of Subscriprion Card */}
                     {/* Start Subsription Card */}
-                    <div className="flex flex-col items-center w-auto h-auto bg-white rounded-lg p-1 shadow-lg m-1">
+                    <div className="flex flex-col items-center h-auto bg-white rounded-lg p-1 shadow-lg m-1 w-full sm:w-4/5 md:w-4/5 lg:w-1/3">
                         <h2 className="flex justify-center text-2xl font-bold text-gray-900">Premium</h2>
                         <p className="flex text-gray-900">Ksh. 3000/Month</p>
                         <div className="w-full border-b"></div>           

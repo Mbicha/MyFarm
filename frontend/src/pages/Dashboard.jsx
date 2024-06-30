@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { PieChart, Pie, Tooltip, Legend, Cell } from 'recharts';
+import Barchart from "../visualizations/Barchart";
 
 // Add colors for the pie chart
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57'];
@@ -81,13 +82,19 @@ const Dashboard = () => {
                             </h1>
                             <span className="text-green-800">Poultry Farming</span>
                         </div>
-                        <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Create Farm</Link>
-                        <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Add Farm Produces</Link>
-                        <Link to={`/create-farm`} className="mt-1 underline text-gray-600">Show MyFarm</Link>
+                        <Link to={`/create-farm`} className="mt-1 text-gray-600">Create Farm</Link>
+                        <Link to={`/edit-farm-produce`} className="mt-1 text-gray-600">Edit Source/Harvest</Link>
+                        <Link to={`/show-myfarm`} className="mt-1 text-gray-600">Show MyFarm</Link>
                     </div>
                     {/* Subscription Plan */}
                     <div className="flex flex-col bg-white mt-2 p-1">
-                        <Link to={`/subscription-plan`} className="mt-1 underline text-gray-600">Subscription Plan </Link>
+                        <div className="flex flex-row justify-between border-b">
+                            <h1 className="p-1 text-gray-600">
+                                My Plan
+                            </h1>
+                            <span className="text-green-800">Basic</span>
+                        </div>
+                        <Link to={`/subscription-plan`} className="mt-1 text-gray-600">Subscription Plan </Link>
                     </div>
                 </aside>
 
@@ -95,7 +102,7 @@ const Dashboard = () => {
                     <h1 className="text-white text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
                     <p className="flex text-gray-900">Monitor your business progress through various visualizations</p>
                     
-                    <div className="flex flex-row justify-between mb-4 border p-1 bg-white">
+                    <div className="flex flex-col justify-between mb-4 border p-1 bg-white sm:flex-row">
                         <button 
                             className="flex justify-center bg-yellow-500 text-green-800 w-2/12 p-1 rounded-md"
                             onClick={() => handleTimePeriodChange(timePeriod)}>
@@ -117,7 +124,7 @@ const Dashboard = () => {
                         </button>
                     </div>
                     <div className="flex flex-col border border-yellow-500 w-full h-96">
-                        
+                        {/* <Barchart /> */}
                     </div>                    
                 </div>
             </section>
