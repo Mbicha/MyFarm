@@ -44,7 +44,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col h-dvh p-2 m-6 w-full">
                     <h1 className="text-white text-xl sm:text-3xl">Welcome back, Charles Mbithi</h1>
-                    <p className="flex text-gray-900">Monitor your business progress through various visualizations</p>
+                    <p className="flex text-gray-900">Monitor your business progress through visualizations</p>
 
                     {/* Visualize Here */}
                     <Barchart />                
