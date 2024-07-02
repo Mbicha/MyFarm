@@ -44,7 +44,7 @@ const Services = () => {
         <>
             <section className="flex flex-col items-center bg-green-900 h-dvh w-screen">
                 <div className="flex flex-col mt-4 items-center p-2 sm:w-1/2 lg:w-2/3">
-                    <h1 className="flex justify-center text-2xl items-center text-white underline font-bold w-full">Services</h1>
+                    <h1 className="flex justify-center text-2xl items-center text-yellow-500 underline font-bold w-full">Services</h1>
                     <div className="flex flex-wrap justify-center">
                       {
                           services.map(service => 

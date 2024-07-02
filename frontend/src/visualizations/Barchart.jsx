@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, plugins } from 'chart.js';
 
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -52,37 +52,80 @@ const data = {
     ],
 };
 
-const chartData = {
-    labels: data.daily.map(item => item.name),  // Change this to the dataset you want to display
-    datasets: [
-        {
-            label: 'Sales',
-            data: data.daily.map(item => item.sales),  // Change this to the dataset you want to display
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-        },
-    ],
-};
-
-const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Sales Data',
-        },
-    },
-};
-
 export default class Barchart extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            timePeriod: 'daily',
+            chartData: this.getChartData(data, 'daily'),
+            options: this.getOptions('daily'),
+        }
+    }
+
+    getChartData(data, period) {
+        return{
+            labels: data[period].map(sale => sale.name),
+            datasets: [
+                {
+                    label: "Sales",
+                    data: data[period].map(sale => sale.sales),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }
+            ]
+        }
+    }
+
+    // Chart Options
+    getOptions(period){
+        return{
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: `${period} Sales`
+                }
+            }
+        }
+    }
+
+    // Handle Period Change
+    handlePeriodChange = (data, period) => {
+        this.setState({
+            timePeriod: period,
+            chartData: this.getChartData(data, period),
+            options: this.getOptions(period)
+        })
+    }
     render() {
+        const { options, chartData } = this.state;
         return(
             <>
-                <Bar data={chartData} options={options} />
+                <div className="flex flex-col items-center mb-4 border p-1 bg-white sm:flex-row sm:justify-between">
+                    <button 
+                        className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
+                        onClick={() => this.handlePeriodChange(data, 'daily')}>
+                            Daily
+                    </button>
+                    <button 
+                        className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
+                        onClick={() => this.handlePeriodChange(data, 'monthly')}>
+                            Monthly
+                    </button>
+                    <button 
+                        className="flex justify-center m-1 bg-yellow-500 text-green-800 w-4/5 p-1 rounded-md sm:w-2/12"
+                        onClick={() => this.handlePeriodChange(data, 'yearly')}>
+                            Yearly
+                    </button>        
+                    
+                </div>
+                <div className="flex flex-col align-middle bg-white w-full h-96">
+                    <Bar data={chartData} options={options} />
+                </div>  
             </>
         )
     }
