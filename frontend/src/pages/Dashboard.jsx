@@ -1,63 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Barchart from "../visualizations/Barchart";
 
-// Add colors for the pie chart
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57'];
-
 const Dashboard = () => {
-    const [timePeriod, setTimePeriod] = useState('daily');
-
-    const data = {
-        daily: [
-            { name: 'Mon', sales: 400 },
-            { name: 'Tue', sales: 300 },
-            { name: 'Wed', sales: 500 },
-            { name: 'Thu', sales: 200 },
-            { name: 'Fri', sales: 278 },
-            { name: 'Sat', sales: 189 },
-            { name: 'Sun', sales: 239 },
-        ],
-        weekly: [
-            { name: 'Week 1', sales: 1400 },
-            { name: 'Week 2', sales: 1500 },
-            { name: 'Week 3', sales: 1300 },
-            { name: 'Week 4', sales: 1600 },
-        ],
-        monthly: [
-            { name: 'Jan', sales: 4000 },
-            { name: 'Feb', sales: 3000 },
-            { name: 'Mar', sales: 5000 },
-            { name: 'Apr', sales: 4000 },
-            { name: 'May', sales: 6000 },
-            { name: 'Jun', sales: 7000 },
-            { name: 'Jul', sales: 8000 },
-            { name: 'Aug', sales: 5000 },
-            { name: 'Sep', sales: 4000 },
-            { name: 'Oct', sales: 6000 },
-            { name: 'Nov', sales: 7000 },
-            { name: 'Dec', sales: 8000 },
-        ],
-        quarterly: [
-            { name: 'Q1', sales: 12000 },
-            { name: 'Q2', sales: 15000 },
-            { name: 'Q3', sales: 18000 },
-            { name: 'Q4', sales: 20000 },
-        ],
-        halfYearly: [
-            { name: 'H1', sales: 30000 },
-            { name: 'H2', sales: 40000 },
-        ],
-        yearly: [
-            { name: '2023', sales: 70000 },
-            { name: '2024', sales: 80000 },
-        ],
-    };
-
-    const handleTimePeriodChange = (period) => {
-        setTimePeriod(period);
-    };
-    
 
     return (
         <>
