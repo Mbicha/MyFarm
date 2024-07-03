@@ -11,6 +11,7 @@ const NavBar = () => {
 
   const tongleProfileMenu = () => {
     setIsProfileClicked(!isProfileClicked);
+    setIsMenuOpen(false);
   }
 
   const closeMenu = () => {
@@ -18,7 +19,7 @@ const NavBar = () => {
   }
 
   const closeProfileMenu = () => {
-    setIsProfileClicked(false);
+    setIsProfileClicked(false);    
   }
 
   return (
@@ -48,7 +49,7 @@ const NavBar = () => {
           {/* Links for small screens */}
           {isMenuOpen && (
             <div className="flex flex-col sm:hidden absolute top-16 left-0 bg-green-800 w-full z-40">
-                <Link to={`/dashboard`} onClick={closeMenu} className="p-2 hover:bg-yellow-500">Dashboard</Link>
+              <Link to={`/dashboard`} onClick={closeMenu} className="p-2 hover:bg-yellow-500 border-b border-gray-700">Dashboard</Link>
               <Link to={`/services`} onClick={closeMenu} className="p-2 hover:bg-yellow-500 border-b border-gray-700">Services</Link>
               <Link to={`/about-us`} onClick={closeMenu} className="p-2 hover:bg-yellow-500 border-b border-gray-700">About Us</Link>
               <Link to={`/`} onClick={tongleProfileMenu} className="p-2 hover:bg-yellow-500 border-b border-gray-700">
@@ -59,8 +60,8 @@ const NavBar = () => {
 
           {/* Profile Links for small screens */}
           {isProfileClicked && (
-            <div className="flex flex-col sm:hidden absolute top-16 left-0 bg-green-800 w-full z-50">
-                <Link to={`/`} onClick={closeProfileMenu} className="p-2 hover:bg-yellow-500">Profile</Link>
+            <div className="flex flex-col sm:hidden lg:hidden md:hidden absolute top-16 left-0 bg-green-800 w-full z-50">
+                <Link to={`/dashboard`} onClick={closeProfileMenu} className="p-2 hover:bg-yellow-500">Profile</Link>
                 <Link to={`/`} onClick={closeProfileMenu} className="p-2 hover:bg-yellow-500 border-b border-gray-700">Logout</Link>
                 
             </div>
