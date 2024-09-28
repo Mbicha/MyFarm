@@ -32,6 +32,8 @@
   "homepage": "https://github.com/Mbicha/MyFarm#readme",
   "dependencies": {
     "chart.js": "^4.4.3",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
     "react-chartjs-2": "^5.2.0",
     "recharts": "^2.12.7"
   }

@@ -27,7 +27,7 @@ const NavBar = () => {
       <header className="flex flex-row justify-between bg-green-800 h-16 shadow-md w-screen items-center">
         <div>
           {/* You can add a logo or site name here */}
-          <Link to="/" className="text-white text-lg p-2">MyFarm</Link>
+          <Link to="/" onClick={[closeMenu, closeProfileMenu]} className="text-white text-lg p-2">MyFarm</Link>
         </div>
 
         <div className="flex flex-row justify-center text-white items-center">
