@@ -1,7 +1,18 @@
-import React from "react";
+import React, {useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import httpCommon from "../http-common";
+
+const farming = [
+  "Plant Farming", "Animal Farming"
+]
+const specific_farming = [
+  "Cereal Farming","Legume Farming", "Tuber Farming", "Vegetable Farming",
+  "Fruit Farming", "Herb Farming", "Horticulture", "Cattle Farming", "Poultry Farming,",
+  "Pig Farming", "Sheep Farming", "Goat Farming","Fish Farming", "Apiculture"
+]
 
 const types_farming = {
-    "PlantFarming": {
+    "Plant Farming": {
       "cerealFarming": [
         "Wheat",
         "Rice",
@@ -53,7 +64,7 @@ const types_farming = {
         "Orchids"
       ]
     },
-    "AnimalFarming": {
+    "Animal Farming": {
         "cattleFarming": [
           "Dairy Cows",
           "Beef Cattle"
@@ -90,6 +101,31 @@ const types_farming = {
   }
 
 const CreateFarm = () => {
+  const {id} = useParams();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    user_id: id,
+    farm_name: "",
+    farming_category: "",
+    specific_farming_type: ""
+  });
+
+  const onDataChange = (event) => {
+    setFormData(prev => ({
+      ...prev,
+      [event.target.name]: event.target.value
+    }));
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      await httpCommon.post(`/myfarm/farm/create-farm/${id}`);
+      navigate(`/show-myfarm/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
     const filterFarmingType = (types_farming, main_category) => {
         if(main_category === "AnimalFarming") {
             return types_farming.main_category
@@ -108,18 +144,20 @@ const CreateFarm = () => {
                     </h1>
                     <input
                         type="text" 
-                        name="farm_title" 
+                        name="farm_name" 
                         placeholder="Name of Farm" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={onDataChange}/>
 
                     <div className="flex flex-col mt-2 border-b-gray-400 p-2">
                         <label htmlFor="farming_category" className="mb-1">Farming Category</label>
                         <select
                             name="farming_category"
                             id="farming_category"
-                            defaultValue={`PlantFarming`}>
-                                <option value={"PlantFarming"}>Plant Farming</option>
-                                <option value={"AnimalFarming"}>Animal Farming</option>
+                            defaultValue={`PlantFarming`}>                         
+                            <option value={"PlantFarming"}>Plant Farming</option>
+                            <option value={"AnimalFarming"}>Animal Farming</option>
+                            onChange={onDataChange}
                         </select>
                     </div>
 
@@ -131,17 +169,16 @@ const CreateFarm = () => {
                             defaultValue={`Cereal Planting`}>
                                 <option value={"Cereal Planting"}>Cereal Planting</option>
                                 <option value={"Beef Farming"}>Beef Farming</option>
+                                onChange={onDataChange}
                         </select>
                     </div>
-                    
-                    <input
-                        type="text" 
-                        name="farming_type" 
-                        placeholder="Farming Type" 
-                        className="mt-2 border-b-gray-400 p-2"/>             
 
                     <div className="flex justify-center">
-                        <input type="submit" value="Save" className="mt-2 w-1/2 rounded-md bg-green-800 text-white p-1"/>
+                        <input
+                          type="submit" 
+                          value="Save" 
+                          className="mt-2 w-1/2 rounded-md bg-green-800 text-white p-1"
+                          onClick={handleSubmit}/>
                     </div>
                 </form>
             </section>

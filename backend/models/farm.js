@@ -1,27 +1,29 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const roles = ['Employee', 'Staff', 'Admin', 'Director']
-
-const employee = new Schema({
-    job_id: {type: Schema.Types.ObjectId, ref: "designation"},
-    user_id: {type: Schema.Types.ObjectId, ref: "user", unique: true},
-    role: {
+const Farm = new Schema({
+    user_id: { type: Schema.Types.ObjectId, ref: "user"},
+    farm_name: {
         type: String,
-        require: true,
-        default: "Employee",
-        enum: roles
+        require: true
     },
-    employment_type: {
+    farming_category: {
         type: String,
-        default: "Casual",
-        enum: ['Casual', 'Contract', 'Permanent']
+        default: "Plant Farming",
+        enum: ["Plant Farming", "Animal Farming"]
     },
-    contract_length: {
-        type: Number,
-        default: 1.0,
+    specific_farming_type: {
+        type: String,
+        default: "Cereal Farming",
+        enum: [
+            "Cereal Farming","Legume Farming", "Tuber Farming", "Vegetable Farming",
+            "Fruit Farming", "Herb Farming", "Horticulture", "Cattle Farming", "Poultry Farming,",
+            "Pig Farming", "Sheep Farming", "Goat Farming","Fish Farming", "Apiculture",
+            "Beef Farming"
+          ]
     },
-    created_at: {type: Date, default: Date.now}
+    created_at: {type: Date, default: Date.now},
+    updated_at: {type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model("employee", employee);
+module.exports = mongoose.model("farm", Farm);

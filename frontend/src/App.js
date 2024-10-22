@@ -54,11 +54,11 @@ const router = createBrowserRouter([
         element: <Login/>
       },
       {
-        path:"/create-farm",
+        path:"/create-farm/:id",
         element: <CreateFarm/>
       },
       {
-        path:"/dashboard",
+        path:"/dashboard/:id",
         element: <Dashboard/>
       },
       {
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
         element: <EditFarmProduce/>
       },
       {
-        path: "/show-myfarm",
+        path: "/show-myfarm/:id",
         element: <ShowFarm />
       }
     ]

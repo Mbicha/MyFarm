@@ -1,7 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import httpCommon from "../http-common";
 
 const Signup = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        first_name: "", last_name: "", email: "", password: "", confirm_password: ""
+    });
+
+    const handleFormChange = (event) => {
+        setFormData(prev => ({
+            ...prev,
+            [event.target.name]: event.target.value
+        }));
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await httpCommon.post('/myfarm/auth/register', formData);
+            navigate('/login');
+        } catch (error) {
+            console.log(error);            
+        }
+    }
+
     return(
         <>
             <section className="flex flex-col items-center bg-green-900 h-full w-screen">
@@ -14,34 +37,43 @@ const Signup = () => {
                         type="text"
                         name="first_name" 
                         placeholder="First Name" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={handleFormChange}/>
                     
                     <input
                         type="text" 
                         name="last_name" 
                         placeholder="Last Name" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={handleFormChange}/>
 
                     <input
                         type="text" 
                         name="email" 
                         placeholder="Email" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={handleFormChange}/>
                     
                     <input
                         type="password" 
                         name="password" 
                         placeholder="Password" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={handleFormChange}/>
 
                     <input
                         type="password" 
                         name="confirm_password" 
                         placeholder="Confirm Password" 
-                        className="mt-2 border-b-gray-400 p-2"/>
+                        className="mt-2 border-b-gray-400 p-2"
+                        onChange={handleFormChange}/>
 
                     <div className="flex justify-center">
-                        <input type="submit" value="Signup" className="mt-2 w-1/2 rounded-md bg-green-800 text-white p-1"/>
+                        <input 
+                            type="submit" 
+                            value="Signup" 
+                            className="mt-2 w-1/2 rounded-md bg-green-800 text-white p-1"
+                            onClick={handleSubmit}/>
                     </div>
                     <p className="flex justify-center mt-1">Already have an Account? <Link to={`/login`} className="underline pl-1 pr-1 hover:bg-yellow-500">Login</Link></p>
                 </form>
